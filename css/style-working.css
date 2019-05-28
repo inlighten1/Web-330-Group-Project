@@ -59,14 +59,29 @@ h5 {
 }
 
 .fa-html5, .fa-js, .fa-css3, .fa-bootstrap {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  margin: 1rem;
 }
 
-hr {
-  border-top: 5px solid #2c514c;
-  width: 25%;
-  margin-top: 1rem;
+#footer {
+  position: fixed;
+  height: 50px;
+  background-color: red;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
 }
+
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid #2c514c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
 
 .padding {
   padding: 1rem;
