@@ -6,10 +6,39 @@ body{
   width: 100%;
   font: 'Nunito', sans-serif;
 }
+
+.navbar-dark {
+  background-color: #009fb7 !important;
+}
+
+.navbar-nav li {
+  padding-right: 20px;
+}
+
+.nav-link {
+  font-size: 1.1em !important;
+}
+
+#answer-button-grid {
+  margin: 0 auto;
+}
+
 #btnNext{
   background:#009fb7;
   color:white;
 }
+
+.btn-secondary {
+  background-color: #fed766;
+  color: #272727;
+  border: none;
+  font-size: 5rem !important;
+}
+
+.btn-secondary:hover {
+  color: white;
+}
+
 
 pre{
   white-space: pre-wrap;
@@ -24,10 +53,13 @@ pre{
   font-size: 200%;
   width: 75%;
   margin: 0 auto;
+  padding-top: 20px;
 }
-background {
-  height: 100%;
-  width: 100%
+
+hr {
+  border-top: 5px solid #2c514c;
+  width: 25%;
+  margin-top: 1rem;
 }
 
 /* Developer Icons */
@@ -57,41 +89,12 @@ background {
   margin: 1rem;
 }
 
-hr {
-  border-top: 5px solid #2c514c;
-  width: 25%;
-  margin-top: 1rem;
-}
-
 .padding {
-  padding: 1rem;
+  margin: 1rem;
 }
 
-#answer-button-grid {
-  margin: 0 auto;
-}
-.btn-secondary {
-  background-color: #fed766;
-  color: #272727;
-  border: none;
-  font-size: 5rem !important;
-}
 
-.btn-secondary:hover {
-  color: white;
-}
 
-.navbar-dark {
-  background-color: #009fb7 !important;
-}
-
-.navbar-nav li {
-  padding-right: 20px;
-}
-
-.nav-link {
-  font-size: 1.1em !important;
-}
 
 
 
