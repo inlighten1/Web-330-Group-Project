@@ -44,8 +44,10 @@ pre{
   color: white;
 }
 
-p { margin: 0 !important;
-  padding: 0 !important;}
+footer p {
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
 /**
   The following CSS is for prototyping only
