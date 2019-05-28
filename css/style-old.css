@@ -12,11 +12,15 @@ body{
 }
 
 .navbar-nav li {
-  padding-right: 10px;
+  padding-right: 20px;
 }
 
 .nav-link {
   font-size: 1.1em !important;
+}
+
+#answer-button-grid {
+  margin: 0 auto;
 }
 
 #btnNext{
@@ -24,42 +28,40 @@ body{
   color:white;
 }
 
-pre{
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  text-align: justify;
-}
-
-#answer-button-grid {
-  margin: 0 auto;
-}
 .btn-secondary {
   background-color: #fed766;
   color: #272727;
   border: none;
-  font-size: 100%;
+  font-size: 5rem !important;
 }
 
 .btn-secondary:hover {
   color: white;
 }
 
-footer p {
-    margin: 0 !important;
-    padding: 0 !important;
+p { margin: 0 !important;
+padding: 0 !important;}
+
+pre{
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
 }
 
 /**
   The following CSS is for prototyping only
 **/
 #question-ask {
-  font-size: 150%;
+  font-size: 200%;
   width: 75%;
   margin: 0 auto;
+  padding-top: 20px;
 }
 
-.padding {
-  padding: 1rem;
+hr {
+  border-top: 5px solid #2c514c;
+  width: 25%;
+  margin-top: 1rem;
 }
 
 /* Developer Icons */
@@ -85,34 +87,13 @@ footer p {
 }
 
 .fa-html5, .fa-js, .fa-css3, .fa-bootstrap {
-  font-size: 1.5rem;
+  font-size: 4rem;
   margin: 1rem;
 }
 
-
-hr {
-  border: 0;
-  height: 0;
-  border-top: 1px solid #2c514c;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+.padding {
+  margin: 1rem;
 }
-
-
-#footer {
-  position: fixed;
-  height: 50px;
-  background-color: red;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin-bottom: 0px;
-}
-
-
-
-
-
-
 
 
 
