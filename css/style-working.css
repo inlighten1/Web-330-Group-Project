@@ -6,6 +6,19 @@ body{
   width: 100%;
   font: 'Nunito', sans-serif;
 }
+
+.navbar-dark {
+  background-color: #009fb7 !important;
+}
+
+.navbar-nav li {
+  padding-right: 10px;
+}
+
+.nav-link {
+  font-size: 1.1em !important;
+}
+
 #btnNext{
   background:#009fb7;
   color:white;
@@ -17,6 +30,23 @@ pre{
   text-align: justify;
 }
 
+#answer-button-grid {
+  margin: 0 auto;
+}
+.btn-secondary {
+  background-color: #fed766;
+  color: #272727;
+  border: none;
+  font-size: 100%;
+}
+
+.btn-secondary:hover {
+  color: white;
+}
+
+p { margin: 0 !important;
+  padding: 0 !important;}
+
 /**
   The following CSS is for prototyping only
 **/
@@ -26,14 +56,8 @@ pre{
   margin: 0 auto;
 }
 
-h4 {
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-}
-
-h5 {
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
+.padding {
+  padding: 1rem;
 }
 
 /* Developer Icons */
@@ -63,6 +87,15 @@ h5 {
   margin: 1rem;
 }
 
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid #2c514c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
 #footer {
   position: fixed;
   height: 50px;
@@ -74,44 +107,13 @@ h5 {
 }
 
 
-hr {
-  border: 0;
-  height: 0;
-  border-top: 1px solid #2c514c;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
 
 
 
-.padding {
-  padding: 1rem;
-}
 
-#answer-button-grid {
-  margin: 0 auto;
-}
-.btn-secondary {
-  background-color: #fed766;
-  color: #272727;
-  border: none;
-  font-size: 100%;
-}
 
-.btn-secondary:hover {
-  color: white;
-}
 
-.navbar-dark {
-  background-color: #009fb7 !important;
-}
 
-.navbar-nav li {
-  padding-right: 10px;
-}
-
-.nav-link {
-  font-size: 1.1em !important;
-}
 
 
 
