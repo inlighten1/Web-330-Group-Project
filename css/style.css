@@ -126,13 +126,18 @@ hr {
 
 
 
+#submit{
+  background-color:#009fb7;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  color:white;
 
 
 
-
-
-
-
+}
+.submitPar{
+  text-align: center;
+}
 
 
 li{
