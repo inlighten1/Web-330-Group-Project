@@ -60,13 +60,6 @@
     <button id="submit">Submit Quiz</button>
     <div id="results"></div>
 
-    <script>
-      // details for the submit button
-      $("#submit").on("click", function(){
-      alert("Hello World");
-    });
-    </script>
-
 
     <!--Footer fixed to bottom to ensure it does not move with quiz questions-->
   <footer class="fixed-bottom">
@@ -163,6 +156,12 @@
 
         })
 
+
+        // details for the submit button
+        $("#submit").on("click", function(){
+        alert("Hello World");
+        });
+
       });
 
       // When using a button answer will be the full answer object from the knockout binding
@@ -177,6 +176,8 @@
         questionViewModel.currentQuestion(index);
         questionViewModel.question(quizModule.getQuestionByIndex(index));
       }
+
+
     </script>
 
 
