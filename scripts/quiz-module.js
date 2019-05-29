@@ -42,15 +42,15 @@ let QuestionData = [
     question: "Which of these is the correct syntax?",
     answers: [
       {id: 1,
-      answer:`<pre>$(btn).on("click", function(){}</pre>`},
+      answer:`<pre>$(btn).on("click", function(){})</pre>`},
       {id: 2,
-      answer:`<pre>$(#btn).on(click, function(){}</pre>`},
+      answer:`<pre>$(#btn).on(click, function(){})</pre>`},
       {id: 3,
-      answer:`<pre>$("#btn").on("click", function(){}</pre>`},
+      answer:`<pre>$("#btn").on("click", function(){})</pre>`},
       {id: 4,
-      answer:`<pre>(#btn").on("click", function(){}</pre>`}
+      answer:`<pre>(#btn").on("click", function(){})</pre>`}
     ],
-    correct: 1
+    correct: 3
   },
   {
     id: 3,
@@ -65,7 +65,7 @@ let QuestionData = [
       {id: 4,
       answer:`<pre>&lt;button type="button" onclick= "document.getElementById('furniture').innerHTML = new Date()"&gt;</pre>`}
     ],
-    correct: 1
+    correct: 4
   },
   {
     id: 4,
@@ -260,6 +260,10 @@ var quizModule = (function(exports){
   ; Description: Function to initialize the quiz.
   */
   function initializeQuiz(){
+    questions = [];
+    selectedQuestions = [];
+    questionIndex = 0;
+
     // Call the Array forEach function to loop the data and construct a question and answers
     QuestionData.forEach(q => {
       questions.push(factory.createQuestion(q));
@@ -267,6 +271,7 @@ var quizModule = (function(exports){
 
     // Call the shuffleQuestions function to randomize the questions
     shuffleQuestions(questions);
+
     // Call the Array forEach function to get the first 10 questions in the array
     questions.forEach((q, i) => {
       if(i < 10){
