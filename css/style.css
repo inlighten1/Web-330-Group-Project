@@ -171,3 +171,15 @@ li{
 .selectedAnswer:hover{
   background-color: grey !important;
 }
+
+.vh-50{
+  height: 50vh !important;
+}
+
+.example{
+  background-color: white;
+}
+
+.devby{
+  margin-left: 1rem;
+}
