@@ -34,6 +34,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto" data-bind="template: {name: 'question-nav-template', foreach: list}"></ul>
+          <ul id="navFooter" class="navbar-nav mr-auto">
+            <li class="nav-item"><a href="javascript:void" class="nav-link active submit">Submit</a></li>
+          </ul>
         </div>
       </nav>
     </header>
@@ -52,10 +55,10 @@
       <div style="position: fixed; left:0; bottom: 0;width:100%;">
         <div class="row mt-5">
           <div class="col text-center">
-            <button id="submit">Submit Quiz</button>
+            <button id="submit" class="submit">Submit Quiz</button>
           </div>
         </div>
-        <div class="row">
+        <div class="row title">
           <div class="col my-auto devby">
             Created by: <b>The Programming Penguins</b>
           </div>
@@ -169,7 +172,7 @@
         });
 
         // set the click handler for the submit button
-        $("#submit").on("click", function(){
+        $(".submit").on("click", function(){
           // set the view model summary
           questionViewModel.summary(quizModule.getSummary());
           // show the summary information

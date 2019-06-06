@@ -183,3 +183,16 @@ li{
 .devby{
   margin-left: 1rem;
 }
+
+
+@media (max-height: 990px){
+  .title{
+    display: none !important;
+  }
+  .vh-50 {
+    height: 30vh !important;
+  }
+  #navFooter{
+    display: block;
+  }
+}
