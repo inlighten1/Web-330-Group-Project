@@ -14,177 +14,234 @@ let QuestionData = [
   {
     id: 1,
     question: "Which of these is the correct syntax?",
+    example: null,
     answers: [
-      {id: 1,
-      answer:
-`<pre>function clearAll() {
-  document.getElementsByClassName("independence")[0].style.visibility = 'hidden';
-};</pre>`},
-      {id: 2,
-      answer:
-`<pre>function clearAll() {
-  getElementsByClassName("independence")[0].style.visibility = 'hidden';
-};</pre>`},
-      {id: 3,
-      answer:
-`<pre>function clearAll() {
-  document.getByClassName("independence")[0].style.visibility = 'hidden';</pre>`},
-      {id: 4,
+      {
+        id: 1,
+        isCode: true,
         answer:
-`<pre>function clearAll() {
+`function clearAll() {
+  document.getElementsByClassName("independence")[0].style.visibility = 'hidden';
+};`},
+      {id: 2,
+        isCode: true,
+      answer:
+`function clearAll() {
+  getElementsByClassName("independence")[0].style.visibility = 'hidden';
+};`},
+      {id: 3,
+        isCode: true,
+      answer:
+`function clearAll() {
+  document.getByClassName("independence")[0].style.visibility = 'hidden';
+`},
+      {id: 4,
+        isCode: true,
+        answer:
+`function clearAll() {
   document.("independence")[0].style.visibility = 'hidden';
-}</pre>`}
+}`}
     ],
     correct: 1
   },
   {
     id: 2,
     question: "Which of these is the correct syntax?",
+    example: null,
     answers: [
       {id: 1,
-      answer:`<pre>$(btn).on("click", function(){})</pre>`},
+        isCode: true,
+      answer:`$(btn).on("click", function(){})`},
       {id: 2,
-      answer:`<pre>$(#btn).on(click, function(){})</pre>`},
+        isCode: true,
+      answer:`$(#btn).on(click, function(){})`},
       {id: 3,
-      answer:`<pre>$("#btn").on("click", function(){})</pre>`},
+        isCode: true,
+      answer:`$("#btn").on("click", function(){})`},
       {id: 4,
-      answer:`<pre>(#btn").on("click", function(){})</pre>`}
+        isCode: true,
+      answer:`(#btn").on("click", function(){})`}
     ],
     correct: 3
   },
   {
     id: 3,
     question: "Which of these is the correct syntax?",
+    example: null,
     answers: [
       {id: 1,
-      answer:`<pre>&lt;button type="button" onclick= "document.getElementById('.furniture').innerHTML = new Date()"&gt;</pre>`},
+        isCode: true,
+      answer:`&lt;button type="button" onclick= "document.getElementById('.furniture').innerHTML = new Date()"&gt;`},
       {id: 2,
-      answer:`<pre>&lt;button type="button" onclick= "getElementById(‘#furniture').innerHTML = new Date()"&gt;</pre>`},
+        isCode: true,
+      answer:`&lt;button type="button" onclick= "getElementById(‘#furniture').innerHTML = new Date()"&gt;`},
       {id: 3,
-      answer:`<pre>&lt;button type="button" onclick= "getElementById('furniture').innerHTML = new Date()"&gt;</pre>`},
+        isCode: true,
+      answer:`&lt;button type="button" onclick= "getElementById('furniture').innerHTML = new Date()"&gt;`},
       {id: 4,
-      answer:`<pre>&lt;button type="button" onclick= "document.getElementById('furniture').innerHTML = new Date()"&gt;</pre>`}
+        isCode: true,
+      answer:`&lt;button type="button" onclick= "document.getElementById('furniture').innerHTML = new Date()"&gt;`}
     ],
     correct: 4
   },
   {
     id: 4,
     question: "What is the term used for the space between the curly braces of a function?",
+    example: null,
     answers: [
-      {id: 1, answer: "The function parameters."},
-      {id: 2, answer: "The function arguments."},
-      {id: 3, answer: "The function body."},
-      {id: 4, answer: "The function whitespace."}
+      {id: 1,
+        isCode: false,
+        answer: "The function parameters."},
+      {id: 2,
+        isCode: false,
+        answer: "The function arguments."},
+      {id: 3,
+        isCode: false,
+        answer: "The function body."},
+      {id: 4,
+        isCode: false,
+        answer: "The function whitespace."}
     ],
     correct: 3
   },
   {
     id: 5,
     question: "What is the name of the function on the console object used to output values to the screen?",
+    example: null,
     answers: [
-      {id: 1, answer: "console.draw"},
-      {id: 2, answer: "console.log"},
-      {id: 3, answer: "console.output"},
-      {id: 4, answer: "console.writeLine"}
+      {id: 1,
+        isCode: false,
+        answer: "console.draw"},
+      {id: 2,
+        isCode: false,
+        answer: "console.log"},
+      {id: 3,
+        isCode: false,
+        answer: "console.output"},
+      {id: 4,
+        isCode: false,
+        answer: "console.writeLine"}
     ],
     correct: 2
   },
   {
     id: 6,
     question: "Which is an example of a constructor prototype?",
+    example: null,
     answers: [
       {id: 1,
-      answer:
-`<pre>Song.constructor.toString = function(){
-  return \`\${this.title} performed by \${this.artist}\`;
-}</pre>`},
-      {id: 2,
-      answer:
-`<pre>Song.toString = function(){
-  return \`\${this.title} performed by \${this.artist}\`;
-}</pre>`},
-      {id: 3,
-      answer:
-`<pre>this.toString = function(){
-  return \`\${this.title} performed by \${this.artist}\`;
-}</pre>`},
-      {id: 4,
+        isCode: true,
         answer:
-`<pre>Song.prototype.toString = function(){
+`Song.constructor.toString = function(){
   return \`\${this.title} performed by \${this.artist}\`;
-}</pre>`}
+}`},
+      {id: 2,
+        isCode: true,
+      answer:
+`Song.toString = function(){
+  return \`\${this.title} performed by \${this.artist}\`;
+}`},
+      {id: 3,
+        isCode: true,
+      answer:
+`this.toString = function(){
+  return \`\${this.title} performed by \${this.artist}\`;
+}`},
+      {id: 4,
+        isCode: true,
+        answer:
+`Song.prototype.toString = function(){
+  return \`\${this.title} performed by \${this.artist}\`;
+}`}
     ],
     correct: 4
   },
   {
     id: 7,
     question: "Inside what HTML element, do we put JavaScript?",
+    example: null,
     answers: [
       {id: 1,
+        isCode: true,
       answer:
-`<pre>&lt;script&gt;</pre>`},
+`&lt;script&gt;`},
       {id: 2,
+        isCode: true,
       answer:
-`<pre>&lt;javascript&gt;</pre>`},
+`&lt;javascript&gt;`},
       {id: 3,
+        isCode: true,
       answer:
-`<pre>&lt;js&gt;</pre>`},
+`&lt;js&gt;`},
       {id: 4,
+        isCode: true,
         answer:
-`<pre>&lt;scriptjs&gt;</pre>`}
+`&lt;scriptjs&gt;`}
     ],
     correct: 1
   },
   {
     id: 8,
     question: "How do you write a message in an alert box?",
+    example: null,
     answers: [
       {id: 1,
+        isCode: true,
       answer:
-`<pre>alert("message")</pre>`},
+`alert("message")`},
       {id: 2,
+        isCode: true,
       answer:
-`<pre>msgBox("message")</pre>`},
+`msgBox("message")`},
       {id: 3,
+        isCode: true,
       answer:
-`<pre>msg("message")</pre>`},
+`msg("message")`},
       {id: 4,
+        isCode: true,
         answer:
-`<pre>alertBox("message")</pre>`}
+`alertBox("message")`}
     ],
     correct: 1
   },
   {
     id: 9,
     question: "How do you create a function in JavaScript?",
+    example: null,
     answers: [
       {id: 1,
+        isCode: true,
       answer:
-`<pre>function myFunction()</pre>`},
+`function myFunction()`},
       {id: 2,
+        isCode: true,
       answer:
-`<pre>msgBox("message")</pre>`},
+`msgBox("message")`},
       {id: 3,
+        isCode: true,
       answer:
-`<pre>function:myFunction()</pre>`},
+`function:myFunction()`},
       {id: 4,
+        isCode: true,
         answer:
-`<pre>function = myFunction()`}
+`function = myFunction()`}
     ],
     correct: 1
   },
   {
     id: 10,
-    question: `Is this a proper for statement?
-<div class='row col-12'>
-<pre>for (var counter = 0; counter < 10; counter++) {
+    question: "Is this a proper for statement?",
+    example:
+`for (var counter = 0; counter < 10; counter++) {
   var chance = randomNumber();
   counter = 6;
-}</pre></div>`,
+}`,
     answers: [
       {id: 1,
+        isCode: false,
       answer: `true`},
       {id: 2,
+        isCode: false,
       answer: `false`}
     ],
     correct: 2
@@ -192,14 +249,19 @@ let QuestionData = [
   {
     id: 11,
     question: "An array is an order collection of values.  What are those values called?",
+    example: null,
     answers: [
       {id: 1,
+        isCode: false,
       answer: `Index`},
       {id: 2,
+        isCode: false,
       answer: `Element`},
       {id: 3,
+        isCode: false,
       answer: `Object`},
       {id: 4,
+        isCode: false,
       answer: `Property`}
     ],
     correct: 2
@@ -207,10 +269,13 @@ let QuestionData = [
   {
     id: 12,
     question: `The value of an evaluated expression in a switch statement can be a string?`,
+    example: null,
     answers: [
       {id: 1,
+        isCode: false,
       answer: `true`},
       {id: 2,
+        isCode: false,
       answer: `false`}
     ],
     correct: 1
@@ -224,6 +289,7 @@ QuestionFactory.prototype.createQuestion = function(data){
   let q = new Question();
   q.id = data.id;
   q.question = data.question;
+  q.example = data.example;
   q.correctAnswerId = data.correct;
   q.userAnswerId = -1;
   q.answers = [];
@@ -238,6 +304,7 @@ QuestionFactory.prototype.createQuestion = function(data){
 let Question = function(){
   this.id = 0;
   this.question = "";
+  this.example = null;
   this.answers = [];
   this.correctAnswerId = 0;
   this.userAnswerId = 0;
