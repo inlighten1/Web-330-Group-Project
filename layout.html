@@ -143,6 +143,10 @@
       ; Description: Sets the index number for the current question
       */
       function setQuestion(index){
+        if($("#navbarCollapse").hasClass("show")){
+            $("#navbarCollapse").removeClass("show");
+        }
+
         $("#quizContainer").fadeOut("800", function(){
           questionViewModel.currentIndex(index);
           questionViewModel.question(quizModule.getQuestionByIndex(index));
@@ -238,7 +242,7 @@
       <!-- if the current question matches the index add the active class -->
       <li class="nav-item" data-bind="css:{active:($root.currentIndex()===$index())}">
         <!-- Set the html for the navigation and add a click event to set the current question from the link -->
-        <a class="nav-link" href="javascript:void" data-bind="html:`Q `+($index() + 1), click:function(data, event){setQuestion($index())}" ></a>
+        <a class="nav-link" href="javascript:void" data-bind="html:`Q `+($index() + 1), click:function(data, event){setQuestion($index())}"></a>
       </li>
     </script>
 
