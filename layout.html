@@ -33,9 +33,54 @@
   </head>
   <body>
 
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Quiz</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto" data-bind="template: {name: 'question-nav-template', foreach: list}">
+
+          </ul>
+        </div>
+      </nav>
+    </header>
+
     <div class="container">
       <div class="row">
         <div class="col" data-bind="template: {name: 'question-button-template', data: question}"></div>
+      </div>
+    </div>
+
+    <!--Footer fixed to bottom to ensure it does not move with quiz questions-->
+    <footer class="fixed-bottom">
+      <!--Development icons-->
+      <div class="container-fluid padding" id="developed-by-using">
+        <div class="col-12 text-right">
+          <i class="fab fa-js"></i>
+          <i class="fab fa-html5"></i>
+          <i class="fab fa-css3"></i>
+          <i class="fab fa-bootstrap"></i>
+        </div>
+      </div>
+    </footer>
+
+    <!-- div representing the modal window that opens with score information -->
+    <div id="summaryModal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header modal-header--background">
+            <h5 id="modalTitle" class="modal-title">Your score</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <i class="fas fa-window-close"></i>
+            </button>
+          </div>
+          <div id="modalBody" class="modal-body" data-bind="template: {name: 'summary-template', data: summary}"></div>
+          <div id="modalFooter" class="modal-footer">
+            <button id="btnRetake">Retake quiz</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -158,10 +203,13 @@
       <div class="row vh-50 mt-5">
         <div class="col my-auto text-center">
           <div class="row">
+            <!-- bind the question text -->
             <div class="col-12" data-bind="html: question"></div>
           </div>
+          <!-- if the question has example code it will be displayed in this row-->
           <div class="row mt-1" data-bind="if: example">
               <div class="offset-2 col-8 my-auto text-center">
+                <!-- bind the example code for the question -->
                 <pre class="example p-5 mt-3" data-bind="text: example"></pre>
               </div>
             </div>
@@ -169,13 +217,9 @@
       </div>
 
       <div class="row mt-1">
-        <div class="col" data-bind="template: {name: 'answer-button-template', foreach: answers}">
-        </div>
+        <!-- bind the answer template to the unordered list, and bind to the answers -->
+        <div class="col" data-bind="template: {name: 'answer-button-template', foreach: answers}"></div>
       </div>
-      <!-- bind the question text -->
-      <!--div class="jumbotron text-center" id="question-ask" data-bind="html: question"></div-->
-      <!-- bind the answer template to the unordered list, and bind to the answers -->
-      <!--div class="row col-12" data-bind="template: {name: 'answer-button-template', foreach: answers}"></div-->
     </script>
 
     <!-- Template to display answers -->
@@ -200,7 +244,7 @@
       <!-- if the current question matches the index add the active class -->
       <li class="nav-item" data-bind="css:{active:($root.currentIndex()===$index())}">
         <!-- Set the html for the navigation and add a click event to set the current question from the link -->
-        <a class="nav-link" href="javascript:void" data-bind="html:`Question `+($index() + 1), click:function(data, event){setQuestion($index())}" ></a>
+        <a class="nav-link" href="javascript:void" data-bind="html:`Q `+($index() + 1), click:function(data, event){setQuestion($index())}" ></a>
       </li>
     </script>
 
