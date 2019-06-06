@@ -1,0 +1,214 @@
+<!--
+============================================
+; Title: Web 330 Group Project
+; Author: Lance Desrouleaux, Troy Martin, Adam Donner, Reva Baumann
+; Date: 05/03/2019
+; Modified By:
+; 05/03/2019 Troy Martin - Initial file template
+; Description: JavaScript Quiz
+;===========================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
+    <title>JavaScript Quiz</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+          crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <style>
+      .vh-50{height: 50vh !important;}
+      .example{background-color: white;}
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col" data-bind="template: {name: 'question-button-template', data: question}"></div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-debug.js" integrity="sha256-M5ZomNNnrnEB2WjSbnty5GWGqq6UuAAVNnWECisgEis=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Custom module to control the quiz -->
+    <script src="scripts/quiz-module-example.js"></script>
+
+    <script>
+      // the viewmodel used to display the current question, using an observable to display the current question
+      var questionViewModel = {
+        question: ko.observable(),
+        list:  ko.observableArray(),
+        currentIndex: ko.observable(),
+        summary: ko.observable()
+      };
+
+      /*
+      ; Params: none
+      ; Response: none
+      ; Description: initialize the view model using values from the quiz module
+      */
+      function startQuiz(){
+        // start the quiz and get the first question, set the observable on the view model
+        questionViewModel.question(quizModule.startQuiz());
+        questionViewModel.list(quizModule.getQuestions());
+        questionViewModel.currentIndex(0);
+        questionViewModel.summary(quizModule.getSummary());
+      }
+
+      /*
+      ; Params: answer: object
+      ; Response: none
+      ; Description: Save the selected answer to the current question
+      */
+      function saveAnswer(answer){
+        questionViewModel.question(quizModule.setAnswer(answer.id));
+        questionViewModel.currentIndex(quizModule.currentQuestionNumber());
+      }
+
+      /*
+      ; Params: index: number
+      ; Response: none
+      ; Description: Sets the index number for the current question
+      */
+      function setQuestion(index){
+        questionViewModel.currentIndex(index);
+        questionViewModel.question(quizModule.getQuestionByIndex(index));
+      }
+
+      ko.bindingHandlers.buttonText = {
+        init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
+          var unwrapped = ko.unwrap(valueAccessor());
+          var iscodevalue = allBindings.get('isCode') || false;
+
+          var answerFormat = "span";
+          if(iscodevalue){
+            answerFormat = "pre";
+          }
+
+          $(element).html(`<${answerFormat}>${unwrapped}<${answerFormat}>`);
+        }
+      };
+
+      // jQuery on ready
+      $(function(){
+        // initialize the quiz
+        startQuiz();
+
+        // this initialize all the template binding
+        ko.applyBindings(questionViewModel);
+
+        // set the click event of the next button
+        $("#btnNext").on("click", function(){
+          // get the selected answer from the group
+          let answerId = $("input[name='answer']:checked").val();
+
+          if(answerId === undefined ){
+            // if there is not an answer show the next question
+            questionViewModel.question(quizModule.getNext());
+          }
+          else{
+            // set the answer in the module and get the next question, update the observable
+            questionViewModel.question(quizModule.setAnswer(answerId));
+          }
+
+          // set the index of the current question
+          questionViewModel.currentIndex(quizModule.currentQuestionNumber());
+
+        });
+
+        // get the previous question
+        $("#btnBack").on("click", function(){
+          // get the previous question and update the view model
+          questionViewModel.question(quizModule.getPrevious());
+          // set the index of the current question
+          questionViewModel.currentIndex(quizModule.currentQuestionNumber());
+        });
+
+        // set the click handler for the submit button
+        $("#submit").on("click", function(){
+          // set the view model summary
+          questionViewModel.summary(quizModule.getSummary());
+          // show the summary information
+          $('#summaryModal').modal("show");
+          // remove and set the click event to reload the quiz to retake it
+          $("#btnRetake").off("click").on("click", function(){
+            // reload the current location
+            location.reload();
+          });
+        });
+
+      });
+    </script>
+
+    <!-- Template for the question -->
+    <script type="text/html" id="question-button-template">
+      <div class="row vh-50 mt-5">
+        <div class="col my-auto text-center">
+          <div class="row">
+            <div class="col-12" data-bind="html: question"></div>
+          </div>
+          <div class="row mt-1" data-bind="if: example">
+              <div class="offset-2 col-8 my-auto text-center">
+                <pre class="example p-5 mt-3" data-bind="text: example"></pre>
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="row mt-1">
+        <div class="col" data-bind="template: {name: 'answer-button-template', foreach: answers}">
+        </div>
+      </div>
+      <!-- bind the question text -->
+      <!--div class="jumbotron text-center" id="question-ask" data-bind="html: question"></div-->
+      <!-- bind the answer template to the unordered list, and bind to the answers -->
+      <!--div class="row col-12" data-bind="template: {name: 'answer-button-template', foreach: answers}"></div-->
+    </script>
+
+    <!-- Template to display answers -->
+    <script type="text/html" id="answer-button-template">
+      <div class="row mt-2" id="answer-button-grid">
+        <div class="col">
+          <!-- data bind the html, attributes and css and the click event css, will add class selectedAnswer if answer is the previously selected user answer for the question-->
+          <button class="btn btn-secondary btn-block answer text-center" data-bind="attr:{id: 'answer'+id}, click:saveAnswer, css:{selectedAnswer:$parent.userAnswerId===id}, buttonText: answer, isCode: isCode">
+          </button>
+        </div>
+      </div>
+    </script>
+    <script type="text/html" id="answer-button-code-template">
+      <pre data-bind="html: answer"></pre>
+    </script>
+    <script type="text/html" id="answer-button-text-template">
+      <span data-bind="html: answer"></span>
+    </script>
+
+    <!-- Template to display the questions for navigation -->
+    <script type="text/html" id="question-nav-template">
+      <!-- if the current question matches the index add the active class -->
+      <li class="nav-item" data-bind="css:{active:($root.currentIndex()===$index())}">
+        <!-- Set the html for the navigation and add a click event to set the current question from the link -->
+        <a class="nav-link" href="javascript:void" data-bind="html:`Question `+($index() + 1), click:function(data, event){setQuestion($index())}" ></a>
+      </li>
+    </script>
+
+    <!-- Template to display the users score and rank -->
+    <script type="text/html" id="summary-template">
+      <div class="row col" data-bind="html: `Ranking: ` + rank"></div>
+      <div class="row col" data-bind="html: `Score: ` + score"></div>
+    </script>
+
+  </body>
+</html>
