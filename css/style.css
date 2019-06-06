@@ -5,6 +5,7 @@ body{
   height: 100%;
   width: 100%;
   font: 'Nunito', sans-serif;
+  padding-top: 4rem;
 }
 
 .navbar-dark {
@@ -124,22 +125,6 @@ hr {
   display: none;
 }
 
-
-
-#submit{
-  background-color:#009fb7;
-  border-radius: 8px;
-  font-size: 1.5rem;
-  color:white;
-
-
-
-}
-.submitPar{
-  text-align: center;
-}
-
-
 li{
   list-style-type: none;
 }
@@ -184,9 +169,14 @@ li{
   margin-left: 1rem;
 }
 
+@media (min-height: 801px){
+  #navFooter{
+    display: none;
+  }
+}
 
 @media (max-height: 990px){
-  .title{
+  footer{
     display: none !important;
   }
   .vh-50 {
