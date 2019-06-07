@@ -117,11 +117,11 @@
       ; Description: initialize the view model using values from the quiz module
       */
       function startQuiz(){
-          // start the quiz and get the first question, set the observable on the view model
-          questionViewModel.question(quizModule.startQuiz());
-          questionViewModel.list(quizModule.getQuestions());
-          questionViewModel.currentIndex(0);
-          questionViewModel.summary(quizModule.getSummary());
+        // start the quiz and get the first question, set the observable on the view model
+        questionViewModel.question(quizModule.startQuiz());
+        questionViewModel.list(quizModule.getQuestions());
+        questionViewModel.currentIndex(0);
+        questionViewModel.summary(quizModule.getSummary());
       }
 
       /*
@@ -157,10 +157,10 @@
       ko.bindingHandlers.buttonText = {
         init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
           var unwrapped = ko.unwrap(valueAccessor());
-          var iscodevalue = allBindings.get('isCode') || false;
+          var isCodeValue = allBindings.get('isCode') || false;
 
           var answerFormat = "span";
-          if(iscodevalue){
+          if(isCodeValue){
             answerFormat = "pre";
           }
 
