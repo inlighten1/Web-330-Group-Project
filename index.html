@@ -4,7 +4,7 @@
 ; Author: Lance Desrouleaux, Troy Martin, Adam Donner, Reva Baumann
 ; Date: 05/03/2019
 ; Modified By:
-; 05/03/2019 Troy Martin - Initial file template
+; 06/15/2019 Adam Donner - Layout
 ; Description: JavaScript Quiz
 ;===========================================
 -->
@@ -30,15 +30,14 @@
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="#">Quiz</a>
         <!-- visible based on media query max-height 990px -->
-        <ul id="navFooter" class="navbar-nav text-center">
-          <li class="nav-item"><button class="submit btn btn-warning my-2 my-sm-0 text-center" type="submit">Submit Quiz</button></li>
-        </ul>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto" data-bind="template: {name: 'question-nav-template', foreach: list}"></ul>
-
+          <ul id="navFooter" class="navbar-nav text-center">
+              <li class="nav-item"><button class="submit btn btn-warning my-2 my-sm-0 text-center" type="submit">Submit Quiz</button></li>
+            </ul>
         </div>
       </nav>
     </header>
@@ -57,12 +56,7 @@
       The footer is hidden based on a media query max-height 990 px
     -->
     <footer>
-      <div style="position: fixed; left:0; bottom: 0;width:100%;">
-        <div class="row">
-          <div class="col text-center">
-            <button class="submit btn btn-info">Submit Quiz</button>
-          </div>
-        </div>
+      <div style="position: fixed; left:0; bottom: 0; width:100%;">
         <div class="row title">
           <div class="col my-auto devby">
             <b>The Programming Penguins</b>
@@ -224,7 +218,7 @@
     <!-- Template to display answers -->
     <script type="text/html" id="answer-button-template">
       <div class="row mt-2" id="answer-button-grid">
-        <div class="col">
+        <div class="offset-xl-3 offset-lg-3 offset-md-2 col-xl-6 col-lg-6 col-md-8 col-sm-12">
           <!--
             data bindings:
             buttonText: custom binding that will place the answer in a pre element if the answer is flagged as code (isCode), otherwise text in placed in span

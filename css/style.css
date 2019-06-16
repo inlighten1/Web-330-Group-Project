@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
 body{
   color:#222;
   height: 100%;
   width: 100%;
-  font: 'Nunito', sans-serif;
+  font: 'Poppins', sans-serif;
   padding-top: 4rem;
 }
 
 .navbar-dark {
-  background-color: #009fb7 !important;
+  background-color: #312f2f !important;
 }
 
 .navbar-nav li {
@@ -35,8 +35,8 @@ pre{
   margin: 0 auto;
 }
 .btn-secondary {
-  background-color: #fed766;
-  color: #272727;
+  background-color: #003f91;
+  color: #FFFDFD;
   border: none;
   font-size: 100%;
 }
@@ -137,24 +137,26 @@ li{
 }
 
 .answer pre{
-  color: #272727 !important;
+  color: #FFFDFD !important;
   text-align: left !important;
   margin-bottom: 0 !important;
 }
 
 .answer pre:hover {
-  color: white !important;;
+  color: #FFFDFD !important;
 }
 
 .answer{
   text-align: left !important;
 }
 .selectedAnswer{
-  background-color: #95818d !important;
+  background-color: #CBD2D0 !important;
   border: none !important;
+  color: #222 !important;
 }
 .selectedAnswer:hover{
-  background-color: grey !important;
+  background-color: #CBD2D0 !important;
+  color: #222 !important;
 }
 
 .vh-50{
@@ -169,11 +171,6 @@ li{
   margin-left: 1rem;
 }
 
-@media (min-height: 801px){
-  #navFooter{
-    display: none;
-  }
-}
 
 @media (max-height: 990px){
   footer{
