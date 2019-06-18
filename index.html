@@ -114,7 +114,7 @@
       */
       function startQuiz(){
         // the initial state of the button should be disabled
-        $(".submit").attr("disabled","disabled").addClass("disabled");
+        $(".submit").attr("disabled","disabled").addClass("disabled").attr("title","Answer all questions before submitting for a score.");
 
         // start the quiz and get the first question, set the observable on the view model
         questionViewModel.question(quizModule.startQuiz());
