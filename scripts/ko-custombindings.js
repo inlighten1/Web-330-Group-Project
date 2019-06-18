@@ -50,7 +50,7 @@ ko.bindingHandlers.quizComplete = {
     && (!summary.noAnswer.length
     || summary.noAnswer.length === 0)){
       // enable the element
-      $(element).removeAttr("disabled").removeClass("disabled");
+      $(element).removeAttr("disabled").removeClass("disabled").attr("title","Click submit to score your quiz.");
     }
   }
 };
