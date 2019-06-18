@@ -9,7 +9,7 @@ body{
 }
 
 .navbar-dark {
-  background-color: #FFFDFD !important;
+  background-color: black !important;
 }
 
 .navbar-nav li {
@@ -140,24 +140,26 @@ li{
   margin-top:1.3rem;
 }
 
-.answer pre{
+.answer pre, .answer span{
   color: #FFFDFD !important;
   text-align: left !important;
   margin-bottom: 0 !important;
 }
 
-.answer pre:hover {
+.answer pre:hover, .answer span:hover {
   color: #FFFDFD !important;
 }
 
 .answer{
   text-align: left !important;
 }
+
 .selectedAnswer{
   background-color: #CBD2D0 !important;
   border: none !important;
   color: #222 !important;
 }
+
 .selectedAnswer:hover{
   background-color: #CBD2D0 !important;
   color: #222 !important;

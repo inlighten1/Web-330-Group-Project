@@ -36,7 +36,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto" data-bind="template: {name: 'question-nav-template', foreach: list}"></ul>
           <ul id="navFooter" class="navbar-nav text-center">
-              <li class="nav-item"><button class="submit btn btn-warning my-2 my-sm-0 text-center" type="submit">Submit Quiz</button></li>
+              <li class="nav-item"><button class="submit btn btn-warning my-2 my-sm-0 text-center disabled" disabled type="submit" data-bind="quizComplete: currentIndex">Submit Quiz</button></li>
             </ul>
         </div>
       </nav>
@@ -93,11 +93,13 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!-- Custom module to control the quiz -->
+    <!-- Custom javascript to control the quiz -->
+    <script src="scripts/ko-custombindings.js"></script>
+    <script src="scripts/quiz-data.js"></script>
     <script src="scripts/quiz-module.js"></script>
 
     <script>
-      // the viewmodel used to display the current question, using an observable to display the current question
+      // the view model used to display the current question, using an observable to display the current question
       var questionViewModel = {
         question: ko.observable(),
         list:  ko.observableArray(),
@@ -111,6 +113,9 @@
       ; Description: initialize the view model using values from the quiz module
       */
       function startQuiz(){
+        // the initial state of the button should be disabled
+        $(".submit").attr("disabled","disabled").addClass("disabled");
+
         // start the quiz and get the first question, set the observable on the view model
         questionViewModel.question(quizModule.startQuiz());
         questionViewModel.list(quizModule.getQuestions());
@@ -147,20 +152,6 @@
           $("#quizContainer").fadeIn();
         });
       }
-
-      ko.bindingHandlers.buttonText = {
-        init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
-          var unwrapped = ko.unwrap(valueAccessor());
-          var isCodeValue = allBindings.get('isCode') || false;
-
-          var answerFormat = "span";
-          if(isCodeValue){
-            answerFormat = "pre";
-          }
-
-          $(element).html(`<${answerFormat}>${unwrapped}<${answerFormat}>`);
-        }
-      };
 
       // jQuery on ready
       $(function(){
